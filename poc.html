@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Search Function</title>
+    <style>
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        color: black;
+      }
+
+      form {
+        display: flex;
+        margin-bottom: 20px;
+      }
+
+      label {
+        margin-right: 10px;
+      }
+
+      input[type="text"] {
+        flex-grow: 1;
+        padding: 5px;
+        font-size: 16px;
+      }
+
+      button[type="submit"] {
+        padding: 5px 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+
+      button[type="submit"]:hover {
+        background-color: #0062cc;
+      }
+
+      #searchResults {
+        margin-top: 20px;
+      }
+
+      body {
+        background-image: url("https://wallpaperaccess.com/full/2308532.jpg");
+        color: #fff;
+        font-family: Arial, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Search Function</h1>
+      <form onsubmit="event.preventDefault(); searchFunction()">
+        <label for="searchInput">Search:</label>
+        <input type="text" id="searchInput" placeholder="Enter your search term...">
+        <button type="submit">Search</button>
+      </form>
+      <div id="searchResults">
+        <!-- The search results will be displayed here -->
+      </div>
+    </div>
+    <script>
+      function searchFunction() {
+        // Get the value of the search input
+        var searchValue = document.getElementById("searchInput").value;
+
+        // Render the search value in the search results div
+        var searchResultsDiv = document.getElementById("searchResults");
+        searchResultsDiv.innerHTML = "Your input is: " + searchValue;
+      }
+    </script>
+  </body>
+</html>
