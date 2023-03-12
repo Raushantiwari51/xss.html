@@ -64,14 +64,35 @@
         <!-- The search results will be displayed here -->
       </div>
     </div>
-    <script>
+ <script>
       function searchFunction() {
         // Get the value of the search input
         var searchValue = document.getElementById("searchInput").value;
 
-        // Render the search value in the search results div
-        var searchResultsDiv = document.getElementById("searchResults");
-        searchResultsDiv.innerHTML = "Your input is: " + searchValue;
+        // Array of random slangs and names
+        var slangs = ["abe", "oye", "oye hoye", "chal be", "dekh tereko", "sun re", "kya baat hai", "uff", "uffo", "uff yeh", "kya re laure"],
+            names = ["Nipun", "Anubhav", "Shreya", "Amit", "Saurabh", "Pooja", "Rohit", "Anjali", "Pratik", "Rahul", "Priya", "Akash"];
+
+        // Select a random slang and a random name
+        var randomSlang = slangs[Math.floor(Math.random() * slangs.length)];
+        var randomName = names[Math.floor(Math.random() * names.length)];
+
+        // Replace the name in the random slang with a random name
+        randomSlang = randomSlang.replace("tereko", randomName);
+        randomSlang = randomSlang.replace("re", randomName);
+        randomSlang = randomSlang.replace("be", randomName);
+
+        // Check if the search value matches any of the specific names
+        if (searchValue.toLowerCase() === "nipun") {
+          document.getElementById("searchResults").innerHTML = "Tumse na ho payega 😂" + searchValue;
+        } else if (searchValue.toLowerCase() === "anubhav") {
+          document.getElementById("searchResults").innerHTML = "Try kijiye na " + searchValue + " sir";
+        } else if (searchValue.toLowerCase() === "akash") {
+          document.getElementById("searchResults").innerHTML = "Oh no! " + searchValue + " is on to us! 😱";
+        } else {
+          // Render the random slang and random name in the search results div
+          document.getElementById("searchResults").innerHTML = randomSlang +  ": " + searchValue;
+        }
       }
     </script>
   </body>
